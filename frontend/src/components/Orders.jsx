@@ -48,7 +48,7 @@ const Orders = () => {
       };
       const queryKey = Object.keys(params)[0];
       const queryValue = encodeURIComponent(params[queryKey]);
-      const url = `http://localhost:5000/api/orders?${queryKey}=${queryValue}`;
+      const url = `https://ecommerce-app-bnmg.onrender.com/api/orders?${queryKey}=${queryValue}`;
 
       const response = await fetch(url, {
         method: "GET",
@@ -124,7 +124,7 @@ const Orders = () => {
     try {
       console.log("Cancelling order:", orderId);
       const response = await fetch(
-        `http://localhost:5000/api/orders/${orderId}`,
+        `https://ecommerce-app-bnmg.onrender.com/api/orders/${orderId}`,
         {
           method: "PUT",
           headers: {

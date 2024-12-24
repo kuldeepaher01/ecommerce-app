@@ -15,7 +15,10 @@ const AddProduct = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/products", product);
+      await axios.post(
+        "https://ecommerce-app-bnmg.onrender.com/api/products",
+        product
+      );
       toast.success("Product added successfully!");
       navigate("/");
     } catch (error) {

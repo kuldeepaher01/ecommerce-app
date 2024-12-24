@@ -37,7 +37,9 @@ const ProductList = () => {
     try {
       setLoading(true);
       setError(null);
-      const response = await fetch("http://localhost:5000/api/products");
+      const response = await fetch(
+        "https://ecommerce-app-bnmg.onrender.com/api/products"
+      );
       if (!response.ok) throw new Error("Failed to fetch products");
       const data = await response.json();
       setProducts(data);
@@ -54,7 +56,7 @@ const ProductList = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/products/${deleteProduct.id}`,
+        `https://ecommerce-app-bnmg.onrender.com/api/products/${deleteProduct.id}`,
         {
           method: "DELETE",
         }
@@ -83,13 +85,16 @@ const ProductList = () => {
     try {
       setOrderProcessing((prev) => ({ ...prev, [orderData.productId]: true }));
 
-      const response = await fetch("http://localhost:5000/api/orders", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(orderData),
-      });
+      const response = await fetch(
+        "https://ecommerce-app-bnmg.onrender.com/api/orders",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(orderData),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Failed to place order");

@@ -34,7 +34,9 @@ const EditProduct = () => {
 
   const fetchProduct = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/products/${id}`);
+      const response = await fetch(
+        `https://ecommerce-app-bnmg.onrender.com/api/products/${id}`
+      );
       if (!response.ok) throw new Error("Failed to fetch product");
       const data = await response.json();
       setProduct(data);
@@ -51,13 +53,16 @@ const EditProduct = () => {
 
   const confirmUpdate = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/products/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(product),
-      });
+      const response = await fetch(
+        `https://ecommerce-app-bnmg.onrender.com/api/products/${id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(product),
+        }
+      );
 
       if (!response.ok) throw new Error("Failed to update product");
 
