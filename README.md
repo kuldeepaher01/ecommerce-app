@@ -1,2 +1,2 @@
 ## Enjoy:
-### For testing you cn use test@gmaail.com for seacrhing orders
+### For testing you cn use test@gmail.com for seacrhing orders
